@@ -5,6 +5,8 @@ on: [ push ]
 jobs:
   build:
     runs-on: ubuntu-latest
+    container:
+      image: arm64v8/ubuntu:bionic
     steps:
       - name: checkout
         uses: actions/checkout@v2
@@ -23,7 +25,7 @@ jobs:
         run: cd TDengine && mkdir debug && cd debug && cmake .. -DBUILD_HTTP=true -DBUILD_JDBC=false && make -j 16 && sudo make install
 
       - name: start taosd
-        run: nohup taosd &
+        run: nohup sudo taosd &
 
       - name: Set up Go
         uses: actions/setup-go@v2
