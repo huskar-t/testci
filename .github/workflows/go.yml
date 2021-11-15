@@ -21,7 +21,7 @@ jobs:
         with:
           repository: 'taosdata/TDengine'
           path: 'TDengine'
-          ref: 'develop'
+          ref: 'hotfix/sangshuduo/TD-10896-use-taosa-insteadof-blm3'
           submodules: true
 #      - name: install build-essential
 #        run: sudo apt-get update && sudo apt-get install -y build-essential curl gcc cmake
